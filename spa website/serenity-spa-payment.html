@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Spa | Online Payment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        body {
+            background-color: #f9f7f4;
+            color: #3a3a3a;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 300;
+            color: #9b8578;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: #c9a287;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #9b8578;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #c9a287;
+        }
+        
+        .payment-section {
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .payment-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #9b8578;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .payment-form {
+            text-align: left;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #9b8578;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #9b8578;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #c9a287;
+        }
+        
+        footer {
+            background-color: #3a3a3a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: #c9a287;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #bbb;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: #c9a287;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #555;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo"><span>Serenity</span> Spa</a>
+            <nav>
+                <ul>
+                    <li><a href="serenity-spa-home.html">Home</a></li>
+                    <li><a href="serenity-spa-services.html">Services</a></li>
+                    <li><a href="serenity-spa-contact.html">Contact</a></li>
+                    <li><a href="serenity-spa-membership.html">Membership</a></li>
+                    <li><a href="serenity-spa-booking.html">Book Now</a></li>
+                    <li><a href="serenity-spa-gallery.html">Gallery</a></li>
+                    <li><a href="review-page.html">Review</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-container">
+                <h2 class="section-title">Secure Payment</h2>
+                <form class="payment-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="service">Select Service</label>
+                        <select id="service" name="service" required>
+                            <option value="">Choose a Service</option>
+                            <option value="massage">Relaxation Massage - $120</option>
+                            <option value="facial">Signature Facial - $150</option>
+                            <option value="package">Wellness Package - $250</option>
+                            <option value="membership">Monthly Membership - $199</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Cardholder Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expiry">Expiration Date</label>
+                        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Receipt</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    </div>
+
+                    <button type="submit" class="btn">Complete Payment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Serenity Spa</h3>
+                    <p>123 Tranquility Lane</p>
+                    <p>Wellness Heights, CA 90210</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: info@serenityspa.com</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hours</h3>
+                    <p>Monday - Friday: 9am - 9pm</p>
+                    <p>Saturday: 8am - 10pm</p>
+                    <p>Sunday: 10am - 8pm</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Location</h3>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.5832685668516!2d-118.24281798468268!3d34.052234380610414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b92b40697505%3A0x9a3153e8b1c93b15!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1678912345678!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="200" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+				</div>
+            
+           <div class="copyright">
+                <p>&copy; 2025 Serenity Spa & Wellness Retreat. All rights reserved.</p>
+            </div>
+     
+        </div>
+    </footer>
+	<script>
+	// Wait for the DOM to be fully loaded before executing JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Get form elements
+    const paymentForm = document.querySelector('.payment-form');
+    const serviceSelect = document.getElementById('service');
+    const cardholderName = document.getElementById('name');
+    const cardNumber = document.getElementById('card-number');
+    const expiryDate = document.getElementById('expiry');
+    const cvvField = document.getElementById('cvv');
+    const emailField = document.getElementById('email');
+    const submitButton = document.querySelector('.btn');
+    
+    // Format card number as user types (add spaces every 4 digits)
+    cardNumber.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\s+/g, ''); // Remove existing spaces
+        value = value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+        
+        // Add space after every 4 digits
+        let formattedValue = '';
+        for (let i = 0; i < value.length; i++) {
+            if (i > 0 && i % 4 === 0) {
+                formattedValue += ' ';
+            }
+            formattedValue += value[i];
+        }
+        
+        // Limit to 19 characters (16 digits + 3 spaces)
+        e.target.value = formattedValue.substring(0, 19);
+    });
+    
+    // Format expiry date as MM/YY
+    expiryDate.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
+        
+        if (value.length > 2) {
+            value = value.substring(0, 2) + '/' + value.substring(2, 4);
+        }
+        
+        e.target.value = value;
+    });
+    
+    // Limit CVV to 3-4 digits
+    cvvField.addEventListener('input', function(e) {
+        e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
+    });
+    
+    // Visual feedback for form fields
+    const formInputs = document.querySelectorAll('.form-group input, .form-group select');
+    formInputs.forEach(input => {
+        // Add focused class when input is focused
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        // Remove focused class when input loses focus
+        input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+            
+            // Validate the field when it loses focus
+            validateField(this);
+        });
+    });
+    
+    // Validate individual field
+    function validateField(field) {
+        const fieldId = field.id;
+        let isValid = true;
+        
+        // Remove any existing error messages
+        const existingError = field.parentElement.querySelector('.error-message');
+        if (existingError) {
+            existingError.remove();
+        }
+        
+        // Reset field style
+        field.style.borderColor = '#ddd';
+        
+        // Validate based on field type
+        switch(fieldId) {
+            case 'service':
+                if (field.value === '') {
+                    showError(field, 'Please select a service');
+                    isValid = false;
+                }
+                break;
+                
+            case 'name':
+                if (field.value.trim().length < 3) {
+                    showError(field, 'Please enter a valid name');
+                    isValid = false;
+                }
+                break;
+                
+            case 'card-number':
+                // Remove spaces for validation
+                const cardVal = field.value.replace(/\s/g, '');
+                if (cardVal.length < 16 || !/^\d+$/.test(cardVal)) {
+                    showError(field, 'Please enter a valid 16-digit card number');
+                    isValid = false;
+                }
+                break;
+                
+            case 'expiry':
+                if (!/^\d{2}\/\d{2}$/.test(field.value)) {
+                    showError(field, 'Please enter a valid expiry date (MM/YY)');
+                    isValid = false;
+                } else {
+                    // Check if date is in the future
+                    const [month, year] = field.value.split('/');
+                    const currentDate = new Date();
+                    const expiryDate = new Date(`20${year}`, month - 1);
+                    
+                    if (expiryDate < currentDate || month > 12 || month < 1) {
+                        showError(field, 'Please enter a valid future date');
+                        isValid = false;
+                    }
+                }
+                break;
+                
+            case 'cvv':
+                if (!/^\d{3,4}$/.test(field.value)) {
+                    showError(field, 'Please enter a valid 3 or 4 digit CVV');
+                    isValid = false;
+                }
+                break;
+                
+            case 'email':
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+                    showError(field, 'Please enter a valid email address');
+                    isValid = false;
+                }
+                break;
+        }
+        
+        if (isValid) {
+            field.style.borderColor = '#9b8578';
+        }
+        
+        return isValid;
+    }
+    
+    // Show error message for a field
+    function showError(field, message) {
+        field.style.borderColor = '#e74c3c';
+        
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        errorDiv.style.color = '#e74c3c';
+        errorDiv.style.fontSize = '0.9rem';
+        errorDiv.style.marginTop = '5px';
+        
+        field.parentElement.appendChild(errorDiv);
+    }
+    
+    // Handle form submission
+    paymentForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate all fields
+        let isFormValid = true;
+        formInputs.forEach(input => {
+            if (!validateField(input)) {
+                isFormValid = false;
+            }
+        });
+        
+        if (isFormValid) {
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Processing...';
+            submitButton.style.backgroundColor = '#c9a287';
+            
+            // Simulate payment processing
+            setTimeout(function() {
+                // Create a payment confirmation message
+                const selectedService = serviceSelect.options[serviceSelect.selectedIndex].text;
+                const paymentContainer = document.querySelector('.payment-container');
+                
+                // Hide the form
+                paymentForm.style.display = 'none';
+                
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'payment-success';
+                successMessage.innerHTML = `
+                    <h3 style="color: #9b8578; margin-bottom: 20px; font-size: 1.5rem;">Payment Successful!</h3>
+                    <p>Thank you for your purchase, ${cardholderName.value}.</p>
+                    <p>Your payment for <strong>${selectedService}</strong> has been processed successfully.</p>
+                    <p>A confirmation email has been sent to <strong>${emailField.value}</strong>.</p>
+                    <div style="margin-top: 30px;">
+                        <a href="serenity-spa-home.html" class="btn" style="display: inline-block; margin-right: 10px;">Return Home</a>
+                        <a href="serenity-spa-booking.html" class="btn">Book Appointment</a>
+                    </div>
+                `;
+                
+                paymentContainer.appendChild(successMessage);
+                
+                // Scroll to top of payment container for better UX
+                paymentContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 2000);
+        }
+    });
+    
+    // Add some CSS updates
+    const style = document.createElement('style');
+    style.textContent = `
+        .form-group {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group.focused label {
+            color: #c9a287;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #c9a287;
+            box-shadow: 0 0 5px rgba(201, 162, 135, 0.3);
+        }
+        
+        .payment-success {
+            text-align: center;
+            line-height: 1.8;
+        }
+    `;
+    document.head.appendChild(style);
+});
+	</script>
+</body>
+</html>

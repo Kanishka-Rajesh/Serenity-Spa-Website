@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Spa & Wellness | Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        body {
+            background-color: #f9f7f4;
+            color: #3a3a3a;
+            line-height: 1.6;
+        }
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        body {
+            background-color: #f9f7f4;
+            color: #3a3a3a;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 300;
+            color: #9b8578;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: #c9a287;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #9b8578;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #c9a287;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: white;
+            padding: 12px 30px;
+            border: 2px solid white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: white;
+            color: #9b8578;
+        }
+        
+        .section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #9b8578;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #c9a287;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .featured-services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-preview {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-preview:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-preview img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .service-preview h3 {
+            font-size: 1.5rem;
+            color: #9b8578;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .service-preview p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+        
+        .service-preview .btn {
+            background-color: #f9f7f4;
+            color: #9b8578;
+            border-color: #9b8578;
+        }
+        
+        .service-preview .btn:hover {
+            background-color: #9b8578;
+            color: white;
+        }
+        
+        .about {
+            background-color: #f9f7f4;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .about-image {
+            flex: 1 1 500px;
+            min-height: 400px;
+            background: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80') center/cover no-repeat;
+        }
+        
+        .about-content {
+            flex: 1 1 500px;
+            padding: 50px;
+            text-align: left;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: #9b8578;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .about-content p {
+            color: #777;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonials {
+            background-color: white;
+        }
+        
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background-color: #f9f7f4;
+            padding: 30px;
+            border-radius: 5px;
+            text-align: left;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: #9b8578;
+            margin-bottom: 5px;
+        }
+        
+        .author-info span {
+            color: #c9a287;
+            font-size: 0.9rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 50px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            background-color: #3a3a3a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: #c9a287;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #bbb;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: #c9a287;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            background-color: #555;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: #c9a287;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #555;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .about-content {
+                padding: 30px;
+            }
+        }
+
+        
+
+            </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo"><span>Serenity</span> Spa</a>
+            <nav>
+                <ul>
+                    <li><a href="serenity-spa-home.html">Home</a></li>
+                    <li><a href="serenity-spa-services.html">Services</a></li>
+                    <li><a href="serenity-spa-contact.html">Contact</a></li>
+                    <li><a href="serenity-spa-membership.html">Membership</a></li>
+                    <li><a href="serenity-spa-booking.html">Book Now</a></li>
+					<li><a href="serenity-spa-gallery.html">Gallery</a></li>
+					<li><a href="review-page.html">Review</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section id="testimonials" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Guests Say</h2>
+            <p class="section-subtitle">Experiences that speak of transformation and renewal</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p>"The most incredible spa experience I've ever had. Every treatment feels personalized and healing."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=250&q=80" alt="Emily R.">
+                        <div class="author-info">
+                            <h4>Emily Rodriguez</h4>
+                            <span>Tech Executive</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"I've been coming to Serenity Spa for years. Their holistic approach to wellness is truly transformative."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7bf1002?ixlib=rb-1.2.1&auto=format&fit=crop&w=250&q=80" alt="Michael T.">
+                        <div class="author-info">
+                            <h4>Michael Thompson</h4>
+                            <span>Wellness Consultant</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"The perfect escape from city stress. Their massage therapists are absolute miracle workers."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1534751516642-a1af1ef26a56?ixlib=rb-1.2.1&auto=format&fit=crop&w=250&q=80" alt="Sarah K.">
+                        <div class="author-info">
+                            <h4>Sarah Kim</h4>
+                            <span>Marketing Director</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	<footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Serenity Spa</h3>
+                    <p>123 Tranquility Lane</p>
+                    <p>Wellness Heights, CA 90210</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: info@serenityspa.com</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hours</h3>
+                    <p>Monday - Friday: 9am - 9pm</p>
+                    <p>Saturday: 8am - 10pm</p>
+                    <p>Sunday: 10am - 8pm</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Location</h3>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.5832685668516!2d-118.24281798468268!3d34.052234380610414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b92b40697505%3A0x9a3153e8b1c93b15!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1678912345678!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="200" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Serenity Spa & Wellness Retreat. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+	<script>
+	// Review form functionality for Serenity Spa
+document.addEventListener('DOMContentLoaded', function() {
+    // Insert the review form above the testimonials section
+    const testimonialsSection = document.querySelector('#testimonials');
+    const reviewFormSection = document.createElement('section');
+    reviewFormSection.id = 'review-form';
+    reviewFormSection.className = 'section';
+    reviewFormSection.style.backgroundColor = '#f9f7f4';
+    reviewFormSection.style.paddingBottom = '50px';
+    
+    reviewFormSection.innerHTML = `
+        <div class="container">
+            <h2 class="section-title">Share Your Experience</h2>
+            <p class="section-subtitle">We value your feedback and would love to hear about your time with us</p>
+            
+            <form id="reviewSubmitForm" style="max-width: 700px; margin: 0 auto; background-color: white; padding: 30px; border-radius: 5px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);">
+                <div style="margin-bottom: 20px;">
+                    <label for="fullName" style="display: block; margin-bottom: 5px; color: #9b8578; font-weight: 500; text-align: left;">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required style="width: 100%; padding: 10px; border: 1px solid #e0e0e0; border-radius: 3px; font-size: 16px;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label for="profession" style="display: block; margin-bottom: 5px; color: #9b8578; font-weight: 500; text-align: left;">Profession</label>
+                    <input type="text" id="profession" name="profession" style="width: 100%; padding: 10px; border: 1px solid #e0e0e0; border-radius: 3px; font-size: 16px;">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label for="rating" style="display: block; margin-bottom: 5px; color: #9b8578; font-weight: 500; text-align: left;">Rating</label>
+                    <div id="ratingStars" style="text-align: left;">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                        <span id="ratingValue" style="margin-left: 10px; color: #c9a287;"></span>
+                    </div>
+                    <input type="hidden" id="rating" name="rating" value="0">
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label for="reviewText" style="display: block; margin-bottom: 5px; color: #9b8578; font-weight: 500; text-align: left;">Your Review</label>
+                    <textarea id="reviewText" name="reviewText" required rows="5" style="width: 100%; padding: 10px; border: 1px solid #e0e0e0; border-radius: 3px; resize: vertical; font-size: 16px;"></textarea>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label for="profileImage" style="display: block; margin-bottom: 5px; color: #9b8578; font-weight: 500; text-align: left;">Profile Image (Optional)</label>
+                    <input type="file" id="profileImage" name="profileImage" accept="image/*" style="width: 100%; padding: 10px; border: 1px solid #e0e0e0; border-radius: 3px;">
+                </div>
+                
+                <button type="submit" class="btn" style="background-color: #9b8578; color: white; border: none; width: 100%; cursor: pointer;">Submit Review</button>
+            </form>
+            
+            <div id="thankYouMessage" style="display: none; margin-top: 20px; padding: 15px; background-color: #e8f5e8; color: #3c763d; border-radius: 3px; text-align: center;">
+                Thank you for your review! It has been submitted successfully.
+            </div>
+        </div>
+    `;
+    
+    // Insert the review form before the testimonials section
+    testimonialsSection.parentNode.insertBefore(reviewFormSection, testimonialsSection);
+    
+    // Style the rating stars
+    const stars = document.querySelectorAll('.star');
+    stars.forEach(star => {
+        star.style.fontSize = '24px';
+        star.style.color = '#e0e0e0';
+        star.style.cursor = 'pointer';
+        star.style.transition = 'color 0.3s ease';
+        star.style.marginRight = '5px';
+        
+        // Star rating functionality
+        star.addEventListener('click', function() {
+            const rating = parseInt(this.getAttribute('data-rating'));
+            document.getElementById('rating').value = rating;
+            document.getElementById('ratingValue').textContent = `${rating}/5`;
+            
+            // Update stars colors
+            stars.forEach(s => {
+                const starRating = parseInt(s.getAttribute('data-rating'));
+                if (starRating <= rating) {
+                    s.style.color = '#ffc107'; // Gold color for selected stars
+                } else {
+                    s.style.color = '#e0e0e0'; // Gray color for unselected stars
+                }
+            });
+        });
+        
+        // Hover effects
+        star.addEventListener('mouseover', function() {
+            const hoverRating = parseInt(this.getAttribute('data-rating'));
+            
+            stars.forEach(s => {
+                const starRating = parseInt(s.getAttribute('data-rating'));
+                if (starRating <= hoverRating) {
+                    s.style.color = '#ffc107';
+                }
+            });
+        });
+        
+        star.addEventListener('mouseout', function() {
+            const currentRating = parseInt(document.getElementById('rating').value);
+            
+            stars.forEach(s => {
+                const starRating = parseInt(s.getAttribute('data-rating'));
+                if (starRating <= currentRating) {
+                    s.style.color = '#ffc107';
+                } else {
+                    s.style.color = '#e0e0e0';
+                }
+            });
+        });
+    });
+    
+    // Handle form submission
+    const reviewForm = document.getElementById('reviewSubmitForm');
+    reviewForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const fullName = document.getElementById('fullName').value;
+        const profession = document.getElementById('profession').value;
+        const rating = document.getElementById('rating').value;
+        const reviewText = document.getElementById('reviewText').value;
+        const profileImageInput = document.getElementById('profileImage');
+        
+        // Validate form
+        if (!fullName || !reviewText || rating === "0") {
+            alert('Please fill out all required fields and select a rating.');
+            return;
+        }
+        
+        // In a real application, you would send this data to a server
+        // For demonstration purposes, we'll add the review to the testimonials section
+        let profileImageUrl = 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=250&q=80';
+        
+        // Create a new testimonial element
+        const testimonialGrid = document.querySelector('.testimonial-grid');
+        const newTestimonial = document.createElement('div');
+        newTestimonial.className = 'testimonial';
+        newTestimonial.innerHTML = `
+            <p>"${reviewText}"</p>
+            <div class="testimonial-author">
+                <img src="${profileImageUrl}" alt="${fullName}">
+                <div class="author-info">
+                    <h4>${fullName}</h4>
+                    <span>${profession}</span>
+                </div>
+            </div>
+        `;
+        
+        // Add animation for the new testimonial
+        newTestimonial.style.opacity = '0';
+        newTestimonial.style.transform = 'translateY(20px)';
+        newTestimonial.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        // Add the new testimonial to the grid
+        testimonialGrid.prepend(newTestimonial);
+        
+        // Show animation
+        setTimeout(() => {
+            newTestimonial.style.opacity = '1';
+            newTestimonial.style.transform = 'translateY(0)';
+        }, 10);
+        
+        // Show thank you message
+        const thankYouMessage = document.getElementById('thankYouMessage');
+        thankYouMessage.style.display = 'block';
+        
+        // Reset form
+        reviewForm.reset();
+        document.getElementById('rating').value = "0";
+        document.getElementById('ratingValue').textContent = "";
+        stars.forEach(s => {
+            s.style.color = '#e0e0e0';
+        });
+        
+        // Hide thank you message after 5 seconds
+        setTimeout(() => {
+            thankYouMessage.style.display = 'none';
+        }, 5000);
+        
+        // Scroll to the new review
+        setTimeout(() => {
+            newTestimonial.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 600);
+    });
+    
+    // Add some additional styles to the page
+    const style = document.createElement('style');
+    style.textContent = `
+        #review-form {
+            padding-top: 150px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            #review-form {
+                padding-top: 120px;
+            }
+        }
+        
+        .testimonial {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+    `;
+    document.head.appendChild(style);
+});
+	</script>
+
+    <!-- Previous gallery, CTA, and footer sections remain the same -->
+</body>
+</html>

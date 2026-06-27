@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Serenity Spa & Wellness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reuse the CSS from the original document */
+        /* ... (all previous CSS) ... */
+        
+        /* Additional gallery page specific styles */
+        .gallery-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1615213455850-0dca1a4323f7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .gallery-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .extended-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px 20px;
+        }
+        
+        .extended-gallery-item {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .extended-gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .extended-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        body {
+            background-color: #f9f7f4;
+            color: #3a3a3a;
+            line-height: 1.6;
+        }
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        body {
+            background-color: #f9f7f4;
+            color: #3a3a3a;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 300;
+            color: #9b8578;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: #c9a287;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #9b8578;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #c9a287;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: white;
+            padding: 12px 30px;
+            border: 2px solid white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: white;
+            color: #9b8578;
+        }
+        
+        .section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #9b8578;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #c9a287;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .featured-services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-preview {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-preview:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-preview img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .service-preview h3 {
+            font-size: 1.5rem;
+            color: #9b8578;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .service-preview p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+        
+        .service-preview .btn {
+            background-color: #f9f7f4;
+            color: #9b8578;
+            border-color: #9b8578;
+        }
+        
+        .service-preview .btn:hover {
+            background-color: #9b8578;
+            color: white;
+        }
+        
+        .about {
+            background-color: #f9f7f4;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .about-image {
+            flex: 1 1 500px;
+            min-height: 400px;
+            background: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80') center/cover no-repeat;
+        }
+        
+        .about-content {
+            flex: 1 1 500px;
+            padding: 50px;
+            text-align: left;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: #9b8578;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .about-content p {
+            color: #777;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonials {
+            background-color: white;
+        }
+        
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background-color: #f9f7f4;
+            padding: 30px;
+            border-radius: 5px;
+            text-align: left;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: #9b8578;
+            margin-bottom: 5px;
+        }
+        
+        .author-info span {
+            color: #c9a287;
+            font-size: 0.9rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 50px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            background-color: #3a3a3a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: #c9a287;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #bbb;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: #c9a287;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            background-color: #555;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: #c9a287;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #555;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .about-content {
+                padding: 30px;
+            }
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo"><span>Serenity</span> Spa</a>
+            <nav>
+                <ul>
+                    <li><a href="serenity-spa-home.html">Home</a></li>
+                    <li><a href="serenity-spa-services.html">Services</a></li>
+                    <li><a href="serenity-spa-contact.html">Contact</a></li>
+                    <li><a href="serenity-spa-membership.html">Membership</a></li>
+                    <li><a href="serenity-spa-booking.html">Book Now</a></li>
+					<li><a href="serenity-spa-gallery.html">Gallery</a></li>
+					<li><a href="review-page.html">Review</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="gallery-hero">
+        <div class="gallery-hero-content">
+            <h1>Our Sanctuary</h1>
+            <p>A visual journey through our tranquil spaces and transformative experiences</p>
+        </div>
+    </section>
+
+    <section class="extended-gallery">
+        <div class="extended-gallery-item">
+            <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Spa Interior">
+        </div>
+        <div class="extended-gallery-item">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Treatment Room">
+        </div>
+        <div class="extended-gallery-item">
+            <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Relaxation Area">
+        </div>
+        <div class="extended-gallery-item">
+            <img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pool">
+        </div>
+        <div class="extended-gallery-item">
+            <img src="https://images.pexels.com/photos/3865676/pexels-photo-3865676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Products">
+        </div>
+        <div class="extended-gallery-item">
+            <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Spa Treatment">
+        </div>
+        <div class="extended-gallery-item">
+            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Massage">
+        </div>
+        <div class="extended-gallery-item">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Outdoor Area">
+        </div>
+<div class="extended-gallery-item">
+            <img src="https://images.pexels.com/photos/6620948/pexels-photo-6620948.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Spa Lounge">
+        </div>
+<div class="extended-gallery-item">
+            <img src="https://images.pexels.com/photos/10832255/pexels-photo-10832255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+        </div>
+<div class="extended-gallery-item">
+            <img src="https://images.pexels.com/photos/5659019/pexels-photo-5659019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Spa Lounge">
+        </div>
+<div class="extended-gallery-item">
+            <img src="https://i.pinimg.com/originals/ab/75/36/ab7536a2494956799e1127c0df3d1527.jpg" alt="Spa Lounge">
+        </div>
+        
+
+    </section>
+
+    <section class="cta">
+        <h2>Experience Our Sanctuary</h2>
+        <p>Every corner of Serenity Spa is designed to transport you to a world of complete relaxation and rejuvenation.</p>
+        <a href="serenity-spa-booking.html" class="btn">Book Your Experience</a>
+    </section>
+
+    <footer>
+        <!-- Same footer as in the original document -->
+    </footer>
+	<script>
+	// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Create a lightbox/modal for image viewing
+    initializeGalleryLightbox();
+    
+    // Add hover effects and animation for gallery items
+    initializeGalleryEffects();
+    
+    // Add lazy loading for images
+    initializeLazyLoading();
+    
+    // Add filtering capability (if you add categories later)
+    // initializeFiltering();
+});
+
+// Initialize the lightbox/modal for viewing images
+function initializeGalleryLightbox() {
+    // Create modal elements
+    const modal = document.createElement('div');
+    modal.className = 'gallery-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <img class="modal-image" src="" alt="Full size image">
+            <div class="modal-navigation">
+                <button class="nav-button prev-button">&lt;</button>
+                <button class="nav-button next-button">&gt;</button>
+            </div>
+            <div class="image-caption"></div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+    
+    // Add styles for the modal
+    const style = document.createElement('style');
+    style.textContent = `
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow: hidden;
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 0;
+            width: 90%;
+            max-width: 1200px;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+        }
+        
+        .modal-navigation {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .nav-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 15px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        
+        .image-caption {
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 18px;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Get gallery items and modal elements
+    const galleryItems = document.querySelectorAll('.extended-gallery-item');
+    const closeButton = modal.querySelector('.close-button');
+    const modalImg = modal.querySelector('.modal-image');
+    const caption = modal.querySelector('.image-caption');
+    const prevButton = modal.querySelector('.prev-button');
+    const nextButton = modal.querySelector('.next-button');
+    
+    // Current image index
+    let currentIndex = 0;
+    
+    // Add click event listeners to gallery items
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            const img = item.querySelector('img');
+            currentIndex = index;
+            openModal(img.src, img.alt);
+        });
+    });
+    
+    // Function to open the modal
+    function openModal(src, alt) {
+        modal.style.display = 'block';
+        modalImg.src = src;
+        modalImg.classList.add('fade-in');
+        caption.textContent = alt !== "null" ? alt : "Serenity Spa";
+        document.body.classList.add('modal-open');
+    }
+    
+    // Function to close the modal
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    }
+    
+    // Close modal when clicking the X
+    closeButton.addEventListener('click', closeModal);
+    
+    // Close modal when clicking outside the image
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Navigate to previous image
+    prevButton.addEventListener('click', function() {
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+        const img = galleryItems[currentIndex].querySelector('img');
+        modalImg.src = img.src;
+        modalImg.classList.add('fade-in');
+        caption.textContent = img.alt !== "null" ? img.alt : "Serenity Spa";
+    });
+    
+    // Navigate to next image
+    nextButton.addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+        const img = galleryItems[currentIndex].querySelector('img');
+        modalImg.src = img.src;
+        modalImg.classList.add('fade-in');
+        caption.textContent = img.alt !== "null" ? img.alt : "Serenity Spa";
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (modal.style.display === 'block') {
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                prevButton.click();
+            } else if (e.key === 'ArrowRight') {
+                nextButton.click();
+            }
+        }
+    });
+    
+    // Reset animation after it's done
+    modalImg.addEventListener('animationend', function() {
+        modalImg.classList.remove('fade-in');
+    });
+}
+
+// Initialize hover effects and animations for gallery items
+function initializeGalleryEffects() {
+    const galleryItems = document.querySelectorAll('.extended-gallery-item');
+    
+    galleryItems.forEach(item => {
+        // Create overlay element for each gallery item
+        const overlay = document.createElement('div');
+        overlay.className = 'gallery-overlay';
+        
+        // Get image alt text for caption
+        const img = item.querySelector('img');
+        const caption = img.alt !== "null" ? img.alt : "Serenity Spa";
+        
+        // Add content to the overlay
+        overlay.innerHTML = `
+            <div class="overlay-content">
+                <h3>${caption}</h3>
+                <p>Click to view</p>
+            </div>
+        `;
+        
+        // Add overlay to gallery item
+        item.appendChild(overlay);
+    });
+    
+    // Add styles for gallery effects
+    const style = document.createElement('style');
+    style.textContent = `
+        .extended-gallery-item {
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(155, 133, 120, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .extended-gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .overlay-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        
+        .overlay-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .overlay-content p {
+            font-size: 1rem;
+        }
+        
+        .extended-gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .extended-gallery-item:hover img {
+            transform: scale(1.1);
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Initialize lazy loading for images
+function initializeLazyLoading() {
+    if ('IntersectionObserver' in window) {
+        const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute('data-src');
+                    
+                    if (src) {
+                        img.src = src;
+                        img.removeAttribute('data-src');
+                    }
+                    
+                    lazyImageObserver.unobserve(img);
+                }
+            });
+        });
+
+        // Convert normal images to lazy loaded images
+        const galleryImages = document.querySelectorAll('.extended-gallery-item img');
+        galleryImages.forEach(img => {
+            // Skip already processed images
+            if (!img.hasAttribute('data-src')) {
+                const src = img.src;
+                img.setAttribute('data-src', src);
+                img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
+                lazyImageObserver.observe(img);
+            }
+        });
+    }
+}
+
+// Add smooth scrolling to navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId !== '#') {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
+
+// Add a simple preloader
+function addPreloader() {
+    const preloader = document.createElement('div');
+    preloader.className = 'preloader';
+    preloader.innerHTML = `
+        <div class="spinner"></div>
+    `;
+    
+    document.body.appendChild(preloader);
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f9f7f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid transparent;
+            border-top-color: #9b8578;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .preloader.fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    window.addEventListener('load', function() {
+        preloader.classList.add('fade-out');
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    });
+}
+
+// Call the preloader function
+addPreloader();
+	</script>
+</body>
+</html>

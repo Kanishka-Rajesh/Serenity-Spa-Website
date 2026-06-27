@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Spa | Our Services</title>
+    <style>
+        /* CSS from the original document */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        body {
+            background-color: #f9f7f4;
+            color: #3a3a3a;
+            line-height: 1.6;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        body {
+            background-color: #f9f7f4;
+            color: #3a3a3a;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 300;
+            color: #9b8578;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        
+        .logo span {
+            color: #c9a287;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #9b8578;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #c9a287;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: transparent;
+            color: white;
+            padding: 12px 30px;
+            border: 2px solid white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: white;
+            color: #9b8578;
+        }
+        
+        .section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #9b8578;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #c9a287;
+            margin-bottom: 50px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .featured-services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-preview {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-preview:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-preview img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .service-preview h3 {
+            font-size: 1.5rem;
+            color: #9b8578;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        
+        .service-preview p {
+            color: #777;
+            margin-bottom: 20px;
+        }
+        
+        .service-preview .btn {
+            background-color: #f9f7f4;
+            color: #9b8578;
+            border-color: #9b8578;
+        }
+        
+        .service-preview .btn:hover {
+            background-color: #9b8578;
+            color: white;
+        }
+        
+        .about {
+            background-color: #f9f7f4;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .about-image {
+            flex: 1 1 500px;
+            min-height: 400px;
+            background: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80') center/cover no-repeat;
+        }
+        
+        .about-content {
+            flex: 1 1 500px;
+            padding: 50px;
+            text-align: left;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            color: #9b8578;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .about-content p {
+            color: #777;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .testimonials {
+            background-color: white;
+        }
+        
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background-color: #f9f7f4;
+            padding: 30px;
+            border-radius: 5px;
+            text-align: left;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            color: #777;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            color: #9b8578;
+            margin-bottom: 5px;
+        }
+        
+        .author-info span {
+            color: #c9a287;
+            font-size: 0.9rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 50px;
+        }
+        
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1545579133-99bb5ab189bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            background-color: #3a3a3a;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: #c9a287;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #bbb;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: #c9a287;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            background-color: #555;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: #c9a287;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #555;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .about-content {
+                padding: 30px;
+            }
+        }
+
+        /* Rest of the CSS remains the same as in the original document */
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo"><span>Serenity</span> Spa</a>
+            <nav>
+                <ul>
+                    <li><a href="serenity-spa-home.html">Home</a></li>
+                    <li><a href="serenity-spa-services.html">Services</a></li>
+                    <li><a href="serenity-spa-contact.html">Contact</a></li>
+                    <li><a href="serenity-spa-membership.html">Membership</a></li>
+                    <li><a href="serenity-spa-booking.html">Book Now</a></li>
+					<li><a href="serenity-spa-gallery.html">Gallery</a></li>
+					<li><a href="review-page.html">Review</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">Our Signature Services</h1>
+            <p class="section-subtitle">Holistic wellness experiences tailored to you</p>
+
+            <div class="featured-services">
+                <div id="massage" class="service-preview">
+                    <img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Massage Therapy">
+                    <h3>Luxury Massage Therapy</h3>
+                    <p>Choose from a variety of massage techniques including:</p>
+                    <ul>
+                        <li>Swedish Relaxation Massage</li>
+                        <li>Deep Tissue Therapeutic Massage</li>
+                        <li>Hot Stone Massage</li>
+                        <li>Aromatherapy Massage</li>
+                        <li>Couples Massage</li>
+                    </ul>
+                    <a href="serenity-spa-booking.html" class="btn">Book Massage</a>
+                </div>
+                
+                <div id="facial" class="service-preview">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Facial Treatments">
+                    <h3>Advanced Facial Treatments</h3>
+                    <p>Rejuvenate and restore your skin with our premium treatments:</p>
+                    <ul>
+                        <li>Hydrating Oxygen Facial</li>
+                        <li>Anti-Aging Collagen Treatment</li>
+                        <li>Detoxifying Charcoal Facial</li>
+                        <li>Vitamin C Brightening Facial</li>
+                        <li>Sensitive Skin Calming Facial</li>
+                    </ul>
+                    <a href="serenity-spa-booking.html" class="btn">Book Facial</a>
+                </div>
+                
+                <div id="body" class="service-preview">
+                    <img src="https://images.squarespace-cdn.com/content/v1/582c39e5579fb3800810246e/1486675869104-AG2VY4QN7FMD3AW2FJ20/image-asset.jpeg?format=1500w">
+                    <h3>Holistic Body Rituals</h3>
+                    <p>Comprehensive body treatments for complete wellness:</p>
+                    <ul>
+                        <li>Full Body Exfoliation</li>
+                        <li>Detox Body Wrap</li>
+                        <li>Hydrating Body Treatment</li>
+                        <li>Aromatherapy Body Scrub</li>
+                        <li>Ayurvedic Body Renewal</li>
+                    </ul>
+                    <a href="serenity-spa-booking.html" class="btn">Book Body Treatment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Serenity Spa</h3>
+                    <p>123 Tranquility Lane</p>
+                    <p>Wellness Heights, CA 90210</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: info@serenityspa.com</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Hours</h3>
+                    <p>Monday - Friday: 9am - 9pm</p>
+                    <p>Saturday: 8am - 10pm</p>
+                    <p>Sunday: 10am - 8pm</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Location</h3>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3306.5832685668516!2d-118.24281798468268!3d34.052234380610414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b92b40697505%3A0x9a3153e8b1c93b15!2sLos%20Angeles%2C%20CA!5e0!3m2!1sen!2sus!4v1678912345678!5m2!1sen!2sus" 
+                        width="100%" 
+                        height="200" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Serenity Spa & Wellness Retreat. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+	<script>
+	// Wait for the DOM to be fully loaded before executing JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile navigation toggle functionality
+    function setupMobileNav() {
+        const header = document.querySelector('header');
+        const headerContent = document.querySelector('.header-content');
+        
+        // Create hamburger menu for mobile
+        const mobileMenuBtn = document.createElement('div');
+        mobileMenuBtn.className = 'mobile-menu-btn';
+        mobileMenuBtn.innerHTML = '<span></span><span></span><span></span>';
+        headerContent.appendChild(mobileMenuBtn);
+        
+        // Add mobile menu styles dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            .mobile-menu-btn {
+                display: none;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 30px;
+                height: 21px;
+                cursor: pointer;
+            }
+            
+            .mobile-menu-btn span {
+                height: 3px;
+                width: 100%;
+                background-color: #9b8578;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-menu-btn.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            
+            .mobile-menu-btn.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-menu-btn.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+            
+            @media screen and (max-width: 768px) {
+                .mobile-menu-btn {
+                    display: flex;
+                }
+                
+                nav ul {
+                    display: none;
+                    flex-direction: column;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    background-color: rgba(255, 255, 255, 0.95);
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                    padding: 20px 0;
+                }
+                
+                nav ul.active {
+                    display: flex;
+                }
+                
+                nav ul li {
+                    margin: 10px 0;
+                    text-align: center;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Toggle mobile menu
+        mobileMenuBtn.addEventListener('click', function() {
+            const navUl = document.querySelector('nav ul');
+            navUl.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+    }
+    
+    // Service hover effects and animations
+    function setupServiceAnimations() {
+        const serviceCards = document.querySelectorAll('.service-preview');
+        
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+                this.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.1)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.05)';
+            });
+        });
+    }
+    
+    // Smooth scrolling for anchor links
+    function setupSmoothScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+    
+    // Service filter functionality
+    function setupServiceFilters() {
+        // Create filter buttons
+        const servicesSection = document.querySelector('.section');
+        const container = servicesSection.querySelector('.container');
+        const featuredServices = document.querySelector('.featured-services');
+        
+        const filterContainer = document.createElement('div');
+        filterContainer.className = 'service-filters';
+        filterContainer.innerHTML = `
+            <button class="filter-btn active" data-filter="all">All Services</button>
+            <button class="filter-btn" data-filter="massage">Massage</button>
+            <button class="filter-btn" data-filter="facial">Facial</button>
+            <button class="filter-btn" data-filter="body">Body Treatments</button>
+        `;
+        
+        container.insertBefore(filterContainer, featuredServices);
+        
+        // Add filter styles
+        const filterStyle = document.createElement('style');
+        filterStyle.textContent = `
+            .service-filters {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+                margin-bottom: 40px;
+            }
+            
+            .filter-btn {
+                background-color: transparent;
+                border: 2px solid #9b8578;
+                color: #9b8578;
+                padding: 8px 20px;
+                border-radius: 30px;
+                cursor: pointer;
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+            
+            .filter-btn.active, .filter-btn:hover {
+                background-color: #9b8578;
+                color: white;
+            }
+            
+            .service-preview {
+                transition: all 0.5s ease;
+            }
+            
+            .service-preview.hidden {
+                display: none;
+            }
+        `;
+        document.head.appendChild(filterStyle);
+        
+        // Add filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const serviceItems = document.querySelectorAll('.service-preview');
+        
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active button
+                filterButtons.forEach(button => button.classList.remove('active'));
+                this.classList.add('active');
+                
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Show/hide services based on filter
+                serviceItems.forEach(item => {
+                    if (filterValue === 'all') {
+                        item.classList.remove('hidden');
+                    } else {
+                        if (item.id === filterValue) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    }
+    
+    // Form validation for booking
+    function setupFormValidation() {
+        const bookButtons = document.querySelectorAll('.btn');
+        
+        bookButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Store the service type in localStorage to be used on the booking page
+                if (this.parentElement.id) {
+                    localStorage.setItem('selectedService', this.parentElement.id);
+                    localStorage.setItem('serviceName', this.parentElement.querySelector('h3').textContent);
+                }
+            });
+        });
+    }
+    
+    // Loading animation
+    function setupLoadingAnimation() {
+        // Create loading overlay
+        const loadingOverlay = document.createElement('div');
+        loadingOverlay.className = 'loading-overlay';
+        loadingOverlay.innerHTML = `
+            <div class="spinner"></div>
+            <p>Loading Serenity...</p>
+        `;
+        document.body.appendChild(loadingOverlay);
+        
+        // Add loading styles
+        const loadingStyle = document.createElement('style');
+        loadingStyle.textContent = `
+            .loading-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #f9f7f4;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                transition: opacity 0.5s ease;
+            }
+            
+            .spinner {
+                width: 50px;
+                height: 50px;
+                border: 5px solid rgba(155, 133, 120, 0.3);
+                border-radius: 50%;
+                border-top-color: #9b8578;
+                animation: spin 1s ease-in-out infinite;
+                margin-bottom: 20px;
+            }
+            
+            @keyframes spin {
+                to { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(loadingStyle);
+        
+        // Hide loading overlay after page loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(function() {
+                    loadingOverlay.style.display = 'none';
+                }, 500);
+            }, 800);
+        });
+    }
+    
+    // Scroll animations
+    function setupScrollAnimations() {
+        // Add styles for scroll animations
+        const animationStyle = document.createElement('style');
+        animationStyle.textContent = `
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+            
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        `;
+        document.head.appendChild(animationStyle);
+        
+        // Add fade-in class to elements
+        const servicePreviews = document.querySelectorAll('.service-preview');
+        servicePreviews.forEach(preview => {
+            preview.classList.add('fade-in');
+        });
+        
+        // Check elements in viewport on scroll
+        function checkVisibility() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                const isVisible = (
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                    rect.bottom >= 0
+                );
+                
+                if (isVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check and scroll listener
+        window.addEventListener('scroll', checkVisibility);
+        checkVisibility();
+    }
+    
+    // Initialize all features
+    setupMobileNav();
+    setupServiceAnimations();
+    setupSmoothScrolling();
+    setupServiceFilters();
+    setupFormValidation();
+    setupLoadingAnimation();
+    setupScrollAnimations();
+    
+    // Dynamic pricing info display
+    const pricingInfo = {
+        massage: {
+            'Swedish Relaxation Massage': '$95 (60min) / $145 (90min)',
+            'Deep Tissue Therapeutic Massage': '$110 (60min) / $160 (90min)',
+            'Hot Stone Massage': '$120 (60min) / $180 (90min)',
+            'Aromatherapy Massage': '$105 (60min) / $155 (90min)',
+            'Couples Massage': '$190 (60min) / $290 (90min)'
+        },
+        facial: {
+            'Hydrating Oxygen Facial': '$120 (60min)',
+            'Anti-Aging Collagen Treatment': '$150 (75min)',
+            'Detoxifying Charcoal Facial': '$115 (60min)',
+            'Vitamin C Brightening Facial': '$130 (60min)',
+            'Sensitive Skin Calming Facial': '$110 (60min)'
+        },
+        body: {
+            'Full Body Exfoliation': '$110 (45min)',
+            'Detox Body Wrap': '$140 (75min)',
+            'Hydrating Body Treatment': '$130 (60min)',
+            'Aromatherapy Body Scrub': '$115 (45min)',
+            'Ayurvedic Body Renewal': '$160 (90min)'
+        }
+    };
+    
+    // Create pricing tooltips
+    function setupPricingTooltips() {
+        const serviceCards = document.querySelectorAll('.service-preview');
+        
+        serviceCards.forEach(card => {
+            const serviceId = card.id;
+            if (!serviceId || !pricingInfo[serviceId]) return;
+            
+            const listItems = card.querySelectorAll('li');
+            listItems.forEach(item => {
+                const serviceName = item.textContent;
+                const price = pricingInfo[serviceId][serviceName];
+                
+                if (price) {
+                    item.innerHTML = `${serviceName} <span class="price-info">${price}</span>`;
+                    
+                    // Add price info styling
+                    const priceStyle = document.createElement('style');
+                    priceStyle.textContent = `
+                        .price-info {
+                            color: #c9a287;
+                            font-size: 0.9em;
+                            font-style: italic;
+                            margin-left: 5px;
+                        }
+                    `;
+                    document.head.appendChild(priceStyle);
+                }
+            });
+        });
+    }
+    
+    setupPricingTooltips();
+});
+	</script>
+</body>
+</html>
