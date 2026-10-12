@@ -1,185 +1,175 @@
-# Serenity Spa Website
+# Serenity Spa — Full-Stack Application
 
-A responsive multi-page website for a fictional spa and wellness center, developed using HTML5, CSS3, and JavaScript. The project demonstrates modern frontend development practices, responsive layouts, intuitive navigation, and a clean user interface without relying on any backend services or external frameworks.
-
----
-
-## Table of Contents
-
-* Introduction
-* Features
-* Technology Stack
-* Project Structure
-* Getting Started
-* Website Pages
-* Responsive Design
-* Browser Compatibility
-* Future Enhancements
-* License
-* Author
+A comprehensive, production-grade full-stack web application for **Serenity Spa & Wellness Retreat**, retaining the original frontend design while introducing a modern Spring Boot + Java 21 backend and React + TypeScript client.
 
 ---
 
-## Introduction
+## Architecture & Technology Stack
 
-The Serenity Spa Website is a static frontend web application designed to represent the online presence of a modern spa and wellness center. The project emphasizes responsive web design, user-friendly navigation, and visually appealing layouts while maintaining a lightweight architecture built entirely with core web technologies.
+### Backend
+- **Language**: Java 21 LTS
+- **Framework**: Spring Boot 3.3.4
+- **Security**: Spring Security 6 with stateless JWT (HMAC-SHA256) & BCrypt password hashing
+- **Persistence**: Spring Data JPA & Hibernate
+- **Database**: MySQL 8.0 (production/default) / H2 In-Memory (development & testing fallback)
+- **Validation**: Bean Validation (Jakarta Validation)
+- **Documentation**: OpenAPI 3.0 & Swagger UI (`springdoc-openapi`)
+- **Testing**: JUnit 5, Mockito
 
-The application consists of multiple interconnected pages that provide visitors with information about spa services, membership plans, appointment booking, image galleries, customer reviews, and contact information. The project demonstrates fundamental frontend development concepts without requiring a backend server or database.
-
----
-
-## Features
-
-* Responsive multi-page website
-* Modern and intuitive user interface
-* Mobile-friendly layout
-* Dedicated pages for spa services
-* Appointment booking interface
-* Membership plans section
-* Payment page user interface
-* Image gallery
-* Customer reviews section
-* Contact page
-* Consistent navigation across all pages
-* Clean and organized project structure
+### Frontend
+- **Framework**: React 19 + TypeScript
+- **Bundler & Server**: Vite
+- **Routing**: React Router DOM 7
+- **HTTP Client**: Axios with JWT request interceptor & 401 handling
+- **Styling**: Original serif aesthetic (Cormorant Garamond), custom CSS faithfully preserved
 
 ---
 
-## Technology Stack
+## Prerequisites
 
-| Component         | Technology         |
-| ----------------- | ------------------ |
-| Markup            | HTML5              |
-| Styling           | CSS3               |
-| Scripting         | JavaScript (ES6)   |
-| Development Tools | Visual Studio Code |
-| Version Control   | Git, GitHub        |
+1. **Java Development Kit (JDK)**: Java 21 (`java -version`)
+2. **Apache Maven**: Version 3.9+ (`mvn -version`)
+3. **Node.js**: Version 18+ & npm (`node -v`, `npm -v`)
+4. **MySQL Server**: MySQL 8.0+ running on port 3306
 
 ---
 
-## Project Structure
+## Quick Start Guide
 
-```text
-Serenity-Spa-Website
-│
-├── css/
-│   └── ...
-│
-├── js/
-│   └── ...
-│
-├── images/
-│   └── ...
-│
-├── index.html
-├── services.html
-├── booking.html
-├── membership.html
-├── payment.html
-├── gallery.html
-├── review.html
-├── contact.html
-│
-├── README.md
-└── LICENSE
-```
+### 1. Database Setup (MySQL)
 
----
-
-## Getting Started
-
-### Clone the Repository
+Create the MySQL database using the provided schema script or let Hibernate create tables automatically on first startup:
 
 ```bash
-git clone https://github.com/Kanishka-Rajesh/Serenity-Spa-Website.git
+mysql -u root -p < backend/schema.sql
 ```
 
-### Navigate to the Project Directory
+Configure your MySQL connection in `backend/src/main/resources/application-mysql.properties` or provide environment variables:
 
 ```bash
-cd Serenity-Spa-Website
+export DB_URL="jdbc:mysql://localhost:3306/serenity_spa?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true"
+export DB_USERNAME="root"
+export DB_PASSWORD="your_password"
 ```
 
-### Launch the Website
-
-Open the `index.html` file in any modern web browser.
-
-No additional installation, package manager, or server setup is required.
+> **Note**: For instant evaluation without configuring MySQL credentials, activate the `h2` profile by passing `-Dspring.profiles.active=h2`.
 
 ---
 
-## Website Pages
+### 2. Backend Execution
 
-The website consists of the following pages:
+```powershell
+cd backend
+mvn clean package -DskipTests
+java "-Dspring.profiles.active=h2" -jar "target\serenity-spa-backend-1.0.0.jar"
+```
 
-| Page       | Description                                       |
-| ---------- | ------------------------------------------------- |
-| Home       | Landing page introducing the spa and its services |
-| Services   | Overview of available spa and wellness services   |
-| Booking    | Appointment booking interface                     |
-| Membership | Membership plans and pricing information          |
-| Payment    | Payment page user interface                       |
-| Gallery    | Collection of spa images                          |
-| Reviews    | Customer testimonials and feedback                |
-| Contact    | Contact information and inquiry section           |
+The Spring Boot application starts on **http://localhost:8080**.
 
----
+- **Swagger UI**: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+- **OpenAPI 3.0 Specs**: [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
 
-## Responsive Design
-
-The website is designed to provide a consistent browsing experience across different screen sizes, including:
-
-* Desktop
-* Laptop
-* Tablet
-* Mobile devices
-
-The layout automatically adapts to different viewport sizes using responsive CSS techniques.
+#### Pre-seeded Default Accounts:
+- **Admin**: `admin@serenityspa.com` / `Admin@123` (Full permissions)
+- **Customer**: `guest@serenityspa.com` / `Guest@123`
 
 ---
 
-## Browser Compatibility
+### 3. Frontend Execution
 
-The website has been designed to work with all modern browsers, including:
+```powershell
+cd frontend
+npm install
+npm run dev
+```
 
-* Google Chrome
-* Microsoft Edge
-* Mozilla Firefox
-* Safari
-
----
-
-## Future Enhancements
-
-Potential future improvements include:
-
-* Backend integration for appointment management
-* User authentication
-* Online appointment scheduling
-* Payment gateway integration
-* Email confirmation for bookings
-* Administrative dashboard
-* Database integration
-* Content management system (CMS)
-* Search engine optimization (SEO)
-* Accessibility improvements (WCAG)
+The React frontend runs at **http://localhost:5174** (or `5173`).
 
 ---
 
-## License
+## REST API Specification
 
-This project is intended for educational and portfolio purposes.
+### Authentication (`/api/auth`)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `POST` | `/api/auth/register` | Public | Register customer account |
+| `POST` | `/api/auth/login` | Public | Authenticate and obtain JWT |
+| `GET` | `/api/auth/me` | Authenticated | Get profile for currently authenticated user |
 
-A suitable open-source license, such as the MIT License, may be added before public release.
+### Treatments (`/api/treatments` & `/api/admin/treatments`)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `GET` | `/api/treatments` | Public | List all active spa treatments |
+| `GET` | `/api/treatments/{id}` | Public | Get single treatment details |
+| `POST` | `/api/admin/treatments` | `ROLE_ADMIN` | Create new treatment |
+| `PUT` | `/api/admin/treatments/{id}` | `ROLE_ADMIN` | Update treatment attributes |
+| `DELETE` | `/api/admin/treatments/{id}` | `ROLE_ADMIN` | Deactivate treatment |
+
+### Appointments (`/api/appointments` & `/api/admin/appointments`)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `POST` | `/api/appointments` | Customer | Book appointment (includes conflict validation) |
+| `GET` | `/api/appointments/my` | Customer | List logged-in customer's appointments |
+| `GET` | `/api/appointments/{id}` | Owner / Admin | View specific appointment details |
+| `PATCH` | `/api/appointments/{id}/cancel` | Owner / Admin | Cancel existing booking |
+| `GET` | `/api/admin/appointments` | `ROLE_ADMIN` | List all customer appointments |
+| `PATCH` | `/api/admin/appointments/{id}/status` | `ROLE_ADMIN` | Update status (`CONFIRMED`, `COMPLETED`, etc.) |
+
+### Membership (`/api/memberships`)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `GET` | `/api/memberships/plans` | Public | List all active membership plans |
+| `GET` | `/api/memberships/my` | Authenticated | Get current user's membership details |
+| `POST` | `/api/memberships/activate` | Authenticated | Activate or renew a membership (demo flow if payment not integrated) |
+
+### Price Calculation (`/api/appointments/calculate-price`)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `POST` | `/api/appointments/calculate-price` | Authenticated | Calculate final price for a treatment considering active membership discount |
+
+### Reviews (`/api/reviews`)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `GET` | `/api/reviews` | Public | List public reviews for treatments |
+| `GET` | `/api/reviews/my` | Authenticated | List reviews submitted by the current user |
+| `POST` | `/api/reviews` | Authenticated | Submit a review for a completed appointment (ownership and status validated) |
+
+**Note:** The frontend route for My Bookings was renamed from `/my-appointments` to `/my-bookings` and the navigation link updated accordingly.
+
+### Contact (`/api/contact`)
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `POST` | `/api/contact` | Public | Submit guest enquiry |
 
 ---
 
-## Author
+## Testing
 
-**Kanishka Rajesh**
+Run the automated JUnit 5 and Mockito test suite:
 
-Bachelor of Technology – Information Technology
+```powershell
+cd backend
+mvn test
+```
 
-SSN College of Engineering
+### Verified Tests:
+- `AuthServiceTest`:
+  - `register_Success`
+  - `register_ThrowsConflict_WhenEmailExists`
+  - `login_Success`
+- `AppointmentServiceTest`:
+  - `bookAppointment_Success`
+  - `bookAppointment_ThrowsConflict_WhenSlotAlreadyBooked`
+  - `bookAppointment_ThrowsException_WhenDateInPast`
 
-GitHub: https://github.com/Kanishka-Rajesh
+---
+
+## Troubleshooting
+
+1. **Port 8080 already in use**:
+   Stop any process occupying port 8080:
+   ```powershell
+   Get-Process -Id (Get-NetTCPConnection -LocalPort 8080).OwningProcess | Stop-Process -Force
+   ```
+2. **CORS issues**:
+   `SecurityConfig.java` allows origins `http://localhost:5173` and `http://localhost:5174`.
