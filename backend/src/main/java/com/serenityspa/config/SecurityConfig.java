@@ -84,6 +84,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/reviews").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/appointments/calculate-price").permitAll()
 
+                        // Public review form — anyone can submit or read public reviews
+                        .requestMatchers("/api/public-reviews/**").permitAll()
+
                         // Public Treatments viewing
                         .requestMatchers(HttpMethod.GET, "/api/treatments/**").permitAll()
 

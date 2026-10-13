@@ -496,10 +496,17 @@ const AdminPage: React.FC = () => {
                 {reviews.map((r: any) => (
                   <div key={r.id} style={card}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
-                      <strong style={{ color: spaGold }}>{r.customerName || r.customerFullName}</strong>
+                      <div>
+                        <strong style={{ color: spaGold }}>{r.fullName || r.customerName || r.customerFullName}</strong>
+                        {(r.profession) && (
+                          <p style={{ fontSize: '12px', color: '#aaa', margin: '2px 0 0' }}>{r.profession}</p>
+                        )}
+                      </div>
                       <span style={{ color: '#f6ad55', fontSize: '16px' }}>{'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}</span>
                     </div>
-                    <p style={{ fontSize: '13px', color: spaLight, marginBottom: '6px' }}>{r.treatmentName}</p>
+                    {r.treatmentName && (
+                      <p style={{ fontSize: '13px', color: spaLight, marginBottom: '6px' }}>{r.treatmentName}</p>
+                    )}
                     <p style={{ color: '#555', fontSize: '14px', lineHeight: 1.5, marginBottom: '10px' }}>{r.comment || <em style={{ color: '#aaa' }}>No comment</em>}</p>
                     <small style={{ color: '#aaa' }}>{r.createdAt ? new Date(r.createdAt).toLocaleDateString() : ''}</small>
                   </div>

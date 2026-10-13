@@ -1,7 +1,7 @@
 package com.serenityspa.controller;
 
-import com.serenityspa.dto.ReviewResponse;
-import com.serenityspa.service.ReviewService;
+import com.serenityspa.dto.PublicReviewResponse;
+import com.serenityspa.service.PublicReviewService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
@@ -13,19 +13,18 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin/reviews")
-@Tag(name = "Admin Reviews", description = "Endpoints for admin to view all customer reviews")
+@Tag(name = "Admin Reviews", description = "Endpoints for admin to view all public reviews submitted via the review form")
 public class AdminReviewController {
 
-    private final ReviewService reviewService;
+    private final PublicReviewService publicReviewService;
 
-    public AdminReviewController(ReviewService reviewService) {
-        this.reviewService = reviewService;
+    public AdminReviewController(PublicReviewService publicReviewService) {
+        this.publicReviewService = publicReviewService;
     }
 
     @GetMapping
-    @Operation(summary = "Get all customer reviews (admin)")
-    public ResponseEntity<List<ReviewResponse>> getAllReviews() {
-        // Reuse the public method which returns all reviews ordered by creation date
-        return ResponseEntity.ok(reviewService.getAllPublicReviews());
+    @Operation(summary = "Get all public reviews submitted via the review form (admin)")
+    public ResponseEntity<List<PublicReviewResponse>> getAllReviews() {
+        return ResponseEntity.ok(publicReviewService.getAll());
     }
 }
